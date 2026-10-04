@@ -16,7 +16,8 @@ jobs:
         run: |
           curl -L "https://archive.ics.uci.edu/static/public/222/bank+marketing.zip" -o /tmp/bank.zip
           unzip -o /tmp/bank.zip -d /tmp/bank
-          cp /tmp/bank/bank-additional/bank-additional-full.csv dataset/bank-additional-full.csv
+          unzip -o /tmp/bank/bank-additional.zip -d /tmp/bank/additional
+          cp /tmp/bank/additional/bank-additional/bank-additional-full.csv dataset/bank-additional-full.csv
           test -s dataset/bank-additional-full.csv
       - name: Commit dataset
         run: |
